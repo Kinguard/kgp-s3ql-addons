@@ -1,0 +1,4 @@
+debian/.debhelper
+debian/debhelper-build-stamp
+debian/files
+debian/kgp-s3ql-addons*

@@ -1,0 +1,6 @@
+src/backends/__init__.py 	/usr/lib/s3ql/s3ql/backends
+src/backends/s3op.py     	/usr/lib/s3ql/s3ql/backends
+src/database.py				/usr/lib/s3ql/s3ql
+src/fsck.py					/usr/lib/s3ql/s3ql
+src/mkfs.py					/usr/lib/s3ql/s3ql
+

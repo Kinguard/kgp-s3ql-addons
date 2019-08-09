@@ -1,0 +1,17 @@
+Source: kgp-s3ql-addons
+Section: unknown
+Priority: optional
+Maintainer: PA Nilsson <pa@openproducts.se>
+Build-Depends: debhelper (>= 10)
+Standards-Version: 4.1.2
+Homepage: <https://www.kinguardproject.org>
+Vcs-Git:git@github.com:Kinguard/kgp-s3ql-addons.git
+Vcs-Browser: https://github.com/Kinguard/kgp-s3ql-addons
+
+Package: kgp-s3ql-addons
+Architecture: all
+Depends: ${misc:Depends},
+	kgp-pywrap,
+	s3ql (=2.21+dfsg-3)
+Description: Supplies s3ql additional backends and authentication
+ Added more custom backends to s3ql, as well as modifications to allow fully non-interactive generation of FS.
