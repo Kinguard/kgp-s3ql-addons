@@ -12,6 +12,6 @@ Package: kgp-s3ql-addons
 Architecture: all
 Depends: ${misc:Depends},
 	kgp-pywrap,
-	s3ql (=2.21+dfsg-3)
+	s3ql (=3.0+dfsg-1)
 Description: Supplies s3ql additional backends and authentication
  Added more custom backends to s3ql, as well as modifications to allow fully non-interactive generation of FS.
