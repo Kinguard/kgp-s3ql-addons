@@ -33,12 +33,21 @@ class Backend(s3c.Backend):
     access_token = dict()
     _refresh_lock = threading.Lock()
 
-    def __init__(self, storage_url, login, password, options):
-        super().__init__(storage_url, login, password, options)
 
+    def __init__(self, options):
         self.hdr_prefix = 'x-amz-'
+        super().__init__(options)
 
-    def _authorize_request(self, method, path, headers, subres):
+
+#    def __init__(self, storage_url, login, password, options):
+#        super().__init__(storage_url, login, password, options)
+#
+#        self.hdr_prefix = 'x-amz-'
+
+
+#    def _authorize_request(self, method, path, headers, subres):
+
+    def _authorize_request(self, method, path, headers, subres, query_string):
         '''Add authorization information to *headers*'''
 
         headers['token'] = self.access_token['token']
