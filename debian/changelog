@@ -1,3 +1,9 @@
+kgp-s3ql-addons (1.0~4) vili; urgency=medium
+
+  * Buster adaptations to s3ql v3.x
+
+ -- Tor Krill <tor@openproducts.se>  Fri, 17 Jan 2020 11:03:47 +0100
+
 kgp-s3ql-addons (1.0~3) vili; urgency=medium
 
   * Bump dep on s3ql to match buster
