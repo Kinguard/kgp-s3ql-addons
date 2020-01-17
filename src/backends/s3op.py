@@ -39,14 +39,6 @@ class Backend(s3c.Backend):
         super().__init__(options)
 
 
-#    def __init__(self, storage_url, login, password, options):
-#        super().__init__(storage_url, login, password, options)
-#
-#        self.hdr_prefix = 'x-amz-'
-
-
-#    def _authorize_request(self, method, path, headers, subres):
-
     def _authorize_request(self, method, path, headers, subres, query_string):
         '''Add authorization information to *headers*'''
 
