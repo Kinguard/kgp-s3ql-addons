@@ -19,6 +19,8 @@ case "$1" in
     install)
 
         dpkg-divert --package kgp-s3ql-addons --add --rename /usr/lib/s3ql/s3ql/backends/__init__.py
+        dpkg-divert --package kgp-s3ql-addons --add --rename /usr/lib/s3ql/s3ql/common.py
+        dpkg-divert --package kgp-s3ql-addons --add --rename /usr/lib/s3ql/s3ql/adm.py
         dpkg-divert --package kgp-s3ql-addons --add --rename /usr/lib/s3ql/s3ql/database.py
         dpkg-divert --package kgp-s3ql-addons --add --rename /usr/lib/s3ql/s3ql/fsck.py
         dpkg-divert --package kgp-s3ql-addons --add --rename /usr/lib/s3ql/s3ql/mkfs.py

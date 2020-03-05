@@ -1,3 +1,16 @@
+kgp-s3ql-addons (1.0~6) vili; urgency=medium
+
+  * Add divert for filesystem upgrade, removing prompt
+
+ -- Tor Krill <tor@openproducts.se>  Thu, 05 Mar 2020 15:56:25 +0100
+
+kgp-s3ql-addons (1.0~5) vili; urgency=medium
+
+  * Add fix for failing fsck
+    https://github.com/s3ql/s3ql/issues/133
+
+ -- Tor Krill <tor@openproducts.se>  Mon, 02 Mar 2020 12:29:28 +0100
+
 kgp-s3ql-addons (1.0~4) vili; urgency=medium
 
   * Buster adaptations to s3ql v3.x

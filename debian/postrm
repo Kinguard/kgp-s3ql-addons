@@ -37,6 +37,8 @@ fi
 case "$1,$losing_diversion" in
 remove,*|abort-install,*|disappear,*|*,y)
         dpkg-divert --remove --rename /usr/lib/s3ql/s3ql/backends/__init__.py
+        dpkg-divert --remove --rename /usr/lib/s3ql/s3ql/adm.py
+        dpkg-divert --remove --rename /usr/lib/s3ql/s3ql/common.py
         dpkg-divert --remove --rename /usr/lib/s3ql/s3ql/database.py
         dpkg-divert --remove --rename /usr/lib/s3ql/s3ql/fsck.py
         dpkg-divert --remove --rename /usr/lib/s3ql/s3ql/mkfs.py

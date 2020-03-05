@@ -31,7 +31,7 @@ initsql = (
            # locking_mode to EXCLUSIVE, otherwise we can't switch the locking
            # mode without first disabling WAL.
            'PRAGMA synchronous = OFF',
-           'PRAGMA journal_mode = NORMAL',
+           'PRAGMA journal_mode = OFF',
            #'PRAGMA synchronous = NORMAL',
            #'PRAGMA journal_mode = WAL',
 

@@ -137,7 +137,9 @@ def main(args=None):
             else:
                 wrap_pw = sys.stdin.readline().rstrip()
         else:
-            wrap_pw = sys.stdin.readline().rstrip()
+            wrap_pw = fs_passphrase
+            #wrap_pw = sys.stdin.readline().rstrip()
+
         wrap_pw = wrap_pw.encode('utf-8')
 
         # Generate data encryption passphrase

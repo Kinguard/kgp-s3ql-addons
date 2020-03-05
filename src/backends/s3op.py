@@ -88,3 +88,47 @@ class Backend(s3c.Backend):
         return super()._do_request(method, path, subres=subres, headers=headers,
                                    query_string=query_string, body=body)
 
+    #@retry
+    def _list_page(self, prefix, page_token=None, batch_size=1000):
+
+        # We can get at most 1000 keys at a time, so there's no need
+        # to bother with streaming.
+        query_string = { 'prefix': prefix, 'max-keys': str(batch_size) }
+        if page_token:
+            query_string['marker'] = page_token
+        log.debug("OP request")
+
+        resp = self._do_request('GET', '/', query_string=query_string)
+        log.debug(resp)
+        log.debug("OP response done")
+
+        if not s3c.XML_CONTENT_RE.match(resp.headers['Content-Type']):
+            raise RuntimeError('unexpected content type: %s' %
+                               resp.headers['Content-Type'])
+
+        body = self.conn.readall()
+        log.debug(body)
+        etree = s3c.ElementTree.fromstring(body)
+        root_xmlns_uri = s3c._tag_xmlns_uri(etree)
+        log.debug(root_xmlns_uri)
+        if root_xmlns_uri is None:
+            root_xmlns_prefix = ''
+        else:
+            # Validate the XML namespace
+            root_xmlns_prefix = '{%s}' % (root_xmlns_uri, )
+            if root_xmlns_prefix != self.xml_ns_prefix:
+                log.error('Unexpected server reply to list operation:\n%s',
+                          self._dump_response(resp, body=body))
+                raise RuntimeError('List response has unknown namespace')
+
+        names = [ x.findtext(root_xmlns_prefix + 'Key')
+                  for x in etree.findall(root_xmlns_prefix + 'Contents') ]
+
+        is_truncated = etree.find(root_xmlns_prefix + 'IsTruncated')
+        if is_truncated.text == 'false':
+            page_token = None
+        else:
+            page_token = names[-1]
+
+        return (names, page_token)
+
