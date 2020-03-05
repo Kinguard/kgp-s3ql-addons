@@ -4,4 +4,4 @@ src/common.py			/usr/lib/s3ql/s3ql
 src/database.py			/usr/lib/s3ql/s3ql
 src/fsck.py			/usr/lib/s3ql/s3ql
 src/mkfs.py			/usr/lib/s3ql/s3ql
-src/admp.py			/usr/lib/s3ql/s3ql
+src/adm.py			/usr/lib/s3ql/s3ql
