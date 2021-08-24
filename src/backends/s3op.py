@@ -52,7 +52,7 @@ class Backend(s3c.Backend):
         token = self.access_token.get('token')
         if token is not None:
             try:
-                log.debug("Trying to use existing token")
+                #log.debug("Trying to use existing token")
                 return super()._do_request(method, path, subres=subres, headers=headers,
                                            query_string=query_string, body=body)
             except HTTPError as exc:
