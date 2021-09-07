@@ -1,3 +1,9 @@
+kgp-s3ql-addons (1.0~10) vili; urgency=medium
+
+  * Remove some debug logging
+
+ -- Tor Krill <tor@openproducts.se>  Tue, 24 Aug 2021 16:21:34 +0200
+
 kgp-s3ql-addons (1.0~9) vili; urgency=medium
 
   * Update install path for diversion files
