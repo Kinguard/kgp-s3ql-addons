@@ -9,6 +9,7 @@ This work can be distributed under the terms of the GNU GPLv3.
 from ..logging import logging, QuietError # Ensure use of custom logger class
 from . import s3c
 from .s3c import  HTTPError, S3Error
+from .common import retry
 import threading
 from pylibopi import AuthLogin
 
@@ -88,7 +89,7 @@ class Backend(s3c.Backend):
         return super()._do_request(method, path, subres=subres, headers=headers,
                                    query_string=query_string, body=body)
 
-    #@retry
+    @retry
     def _list_page(self, prefix, page_token=None, batch_size=1000):
 
         # We can get at most 1000 keys at a time, so there's no need
@@ -99,7 +100,7 @@ class Backend(s3c.Backend):
         log.debug("OP request")
 
         resp = self._do_request('GET', '/', query_string=query_string)
-        log.debug(resp)
+        #log.debug(resp)
         log.debug("OP response done")
 
         if not s3c.XML_CONTENT_RE.match(resp.headers['Content-Type']):
@@ -107,7 +108,7 @@ class Backend(s3c.Backend):
                                resp.headers['Content-Type'])
 
         body = self.conn.readall()
-        log.debug(body)
+        #log.debug(body)
         etree = s3c.ElementTree.fromstring(body)
         root_xmlns_uri = s3c._tag_xmlns_uri(etree)
         log.debug(root_xmlns_uri)
