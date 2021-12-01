@@ -1,3 +1,9 @@
+kgp-s3ql-addons (1.0~11) vili; urgency=medium
+
+  * Enable retry on list_page on s3op backend
+
+ -- Tor Krill <tor@openproducts.se>  Mon, 18 Oct 2021 16:42:03 +0200
+
 kgp-s3ql-addons (1.0~10) vili; urgency=medium
 
   * Remove some debug logging
