@@ -198,6 +198,11 @@ class Fsck(object):
             if match:
                 inode = int(match.group(1))
                 blockno = int(match.group(2))
+            elif re.match(r'^(\\d+)-(\\d+)\.tmp$', filename):
+                # Temporary file created when downloading object
+                self.found_errors = True
+                self.log_error("Removing leftover temporary file: " + filename)
+                os.unlink(os.path.join(self.cachedir, filename))
             else:
                 raise RuntimeError('Strange file in cache directory: %s' % filename)
 
@@ -1105,6 +1110,7 @@ def parse_args(args):
     parser.add_backend_options()
     parser.add_version()
     parser.add_storage_url()
+    parser.add_compress()
 
     parser.add_argument("--keep-cache", action="store_true", default=False,
                       help="Do not purge locally cached files on exit.")

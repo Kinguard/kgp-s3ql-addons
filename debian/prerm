@@ -45,7 +45,6 @@ case "$1" in
 		undivert /usr/lib/s3ql/s3ql/backends/__init__.py false
 		undivert /usr/lib/s3ql/s3ql/backends/s3op.py false
 		undivert /usr/lib/s3ql/s3ql/common.py false
-		undivert /usr/lib/s3ql/s3ql/database.py false
 		undivert /usr/lib/s3ql/s3ql/fsck.py false
 		undivert /usr/lib/s3ql/s3ql/mkfs.py false
 		undivert /usr/lib/s3ql/s3ql/adm.py false

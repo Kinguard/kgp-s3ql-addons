@@ -65,7 +65,6 @@ case "$1" in
 		divert /usr/lib/s3ql/s3ql/backends/__init__.py	backends/__init__.py false
 		divert /usr/lib/s3ql/s3ql/backends/s3op.py 	backends/s3op.py false
 		divert /usr/lib/s3ql/s3ql/common.py		common.py false
-		divert /usr/lib/s3ql/s3ql/database.py		database.py false
 		divert /usr/lib/s3ql/s3ql/fsck.py		fsck.py false
 		divert /usr/lib/s3ql/s3ql/mkfs.py		mkfs.py false
 		divert /usr/lib/s3ql/s3ql/adm.py		adm.py false

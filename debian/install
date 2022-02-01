@@ -1,7 +1,6 @@
 src/backends/__init__.py	/etc/kinguard/divert/kgp-s3ql-addons/backends
 src/backends/s3op.py		/etc/kinguard/divert/kgp-s3ql-addons/backends
 src/common.py			/etc/kinguard/divert/kgp-s3ql-addons
-src/database.py			/etc/kinguard/divert/kgp-s3ql-addons
 src/fsck.py			/etc/kinguard/divert/kgp-s3ql-addons
 src/mkfs.py			/etc/kinguard/divert/kgp-s3ql-addons
 src/adm.py			/etc/kinguard/divert/kgp-s3ql-addons
